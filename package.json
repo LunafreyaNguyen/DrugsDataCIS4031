@@ -1,0 +1,22 @@
+{
+  "name": "drugs",
+  "version": "1.0.0",
+  "description": "project for CIS4031",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LunafreyaNguyen/DrugsDataCIS4031.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LunafreyaNguyen/DrugsDataCIS4031/issues"
+  },
+  "homepage": "https://github.com/LunafreyaNguyen/DrugsDataCIS4031#readme",
+  "dependencies": {
+    "chart.js": "^3.7.1"
+  }
+}

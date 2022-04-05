@@ -1,6 +1,7 @@
 import './App.css';
 import Title from './title';
 import React from "react";
+import {data} from './testData';
 import {
   LineChart,
   Line,
@@ -11,51 +12,6 @@ import {
   Legend
 } from "recharts";
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100
-  }
-];
-
 function App() {
   return (
     <div className="App">
@@ -63,7 +19,7 @@ function App() {
         <Title />
         <div class="chart">
         <div class="chartTitle">
-          <h1>Test Chart</h1>
+          <h1>Age of First Usage (Marijuana vs Meth)</h1>
         </div>
           <LineChart
             width={750}
@@ -77,44 +33,42 @@ function App() {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey="name" label={{ value: 'Age', position: 'insideBottom', offset: -2 }}/>
+            <YAxis label={{ value: 'Users', angle:-90, position: 'insideLeft', offset: 0}} />
             <Tooltip />
-            <Legend />
+            <Legend verticalAlign="top" height={36}/>
             <Line
               type="monotone"
-              dataKey="pv"
+              dataKey="Marijuana"
               stroke="#8884d8"
               strokeDasharray="5 5"
             />
             <Line
               type="monotone"
-              dataKey="uv"
+              dataKey="Meth"
               stroke="#82ca9d"
               strokeDasharray="3 4 5 2"
             />
           </LineChart>
         </div>
         <div class="chartDataBlock">
-          <h1>Test Chart Information</h1>
+          <h1>Chart Information</h1>
           <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, 
-            quis nostrud exercitation 
-            ullamco laboris nisi ut 
-            aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in 
-            reprehenderit in voluptate 
-            velit esse cillum dolore eu 
-            fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat 
-            non proident, sunt in culpa qui 
-            officia deserunt mollit anim id 
-            est laborum.
+            To take a look at sample queries of interest, select a dropdown below.
           </p>
+          <p>
+            To create your own queries, click <a href='#'>here</a>.
+          </p>
+          <form action="/action_page.php">
+            <label for="cars">Choose a dataset to use: </label>
+            <select id="cars" name="cars">
+              <option value="volvo">Age of First Usage (Marijuana vs Meth)</option>
+              <option value="saab">Age of First Usage (Marijuana vs Cocaine)</option>
+              <option value="fiat">Age of First Usage (Cocaine vs Meth)</option>
+              <option value="audi">Age of First Usage (Vaping vs Marijuana)</option>
+            </select>
+            <input type="submit" value="View Query" />
+          </form>
         </div>
       </header>
     </div>

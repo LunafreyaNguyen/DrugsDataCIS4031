@@ -35,3 +35,25 @@
     transform: rotate(360deg);
   }
 }
+
+.chart{
+  position: absolute;
+  color: black;
+  padding: 30px;
+  border-radius: 15px;
+  top:20%;
+  left:5%;
+  background-color: rgb(255, 255, 255);
+}
+
+
+.chartDataBlock{
+  position: absolute;
+  left: 50%;
+  top:20%;
+  border-radius: 15px;
+  width: 750px;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  color:black;
+}

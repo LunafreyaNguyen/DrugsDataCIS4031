@@ -2,7 +2,7 @@
 
 This project has been created by:
 
-Luna Nguyen
+Lunafreya Nguyen
 
 as part of the Database project.
 

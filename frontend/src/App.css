@@ -36,15 +36,7 @@
   }
 }
 
-.chart{
-  position: absolute;
-  color: black;
-  padding: 30px;
-  border-radius: 15px;
-  top:20%;
-  left:5%;
-  background-color: rgb(255, 255, 255);
-}
+
 
 
 .chartDataBlock{

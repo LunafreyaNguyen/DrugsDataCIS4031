@@ -1,0 +1,21 @@
+.graph {
+    text-align: center;
+}
+.graph-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-size: calc(1.5vmin);
+    color: white;
+}
+.chart {
+    position: absolute;
+    color: black;
+    padding: 30px;
+    border-radius: 15px;
+    top: 20%;
+    left: 5%;
+    background-color: rgb(255, 255, 255);
+}

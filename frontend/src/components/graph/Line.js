@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './graph.css';
 import Option from './Option.js';
-import { Button, Autocomplete, TextField} from '@mui/material';
+import { Button, Autocomplete, TextField, Grid, Box} from '@mui/material';
 import { DeleteRounded,AddCircle } from '@mui/icons-material';
 
 function Line({ name, id, deleteF, update, questions, labels }) {
@@ -42,30 +42,35 @@ function Line({ name, id, deleteF, update, questions, labels }) {
         <>
             <div className="line">
                 <header className="line-header">
-                    <TextField id="standard-basic" label={"Line " + id + " Name:"} variant="standard" onChange={(event) => { update(id, event.target.value) }} />
-                    <Button variant="outlined" color="error" onClick={() => { deleteF(id) }} ><DeleteRounded /></Button>
-                    <Button variant="outlined" onClick={() => { test() }} ><AddCircle/>test</Button>
-                    <Autocomplete
-                        disablePortal
-                        id="questions"
-                        options={questions}
-                        onInputChange={(event,newInputValue) => {setQuestion(newInputValue)} }
-                        sx={{ width: 300 }}
-                        renderInput={(params) => <TextField {...params} label="Select Question" />}
-                    />
-                    {
-                        labels.map((label) => (
-                            <>
-                                Label: { label.name }<br/>
-                                <Button variant="outlined" onClick={() => { addOpt(label.id) }} ><AddCircle />Add Option to Label</Button>
-                            {    opts.map((opt) => ( 
-                                    opt.label === label.id &&
-                                    <Option key={opt.id} id={opt.id} name={opt.name} deleteF={deleteOpt} update={updateOpt} />
-                                ))
-                                }<br />
-                            </>
-                        ))
-                    }
+                    <Grid container spacing={ 1 }>
+                        <TextField id="standard-basic" label={"Line " + id + " Name:"} variant="standard" onChange={(event) => { update(id, event.target.value) }} />
+                        <Button variant="outlined" color="error" onClick={() => { deleteF(id) }} ><DeleteRounded /></Button>
+                        <Button variant="outlined" onClick={() => { test() }} ><AddCircle/>test</Button>
+                        <Autocomplete
+                            disablePortal
+                            id="questions"
+                            options={questions}
+                            onInputChange={(event,newInputValue) => {setQuestion(newInputValue)} }
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label="Select Question" />}
+                        />
+                        {
+                            labels.map((label) => (
+                                <>
+                                    <Grid item xs={4}>
+                                        Label: { label.name }<br/>
+                                        <Button variant="outlined" onClick={() => { addOpt(label.id) }} ><AddCircle />Add Option to Label</Button>
+                                
+                                        {opts.map((opt) => (
+                                        opt.label === label.id &&
+                                        <Option key={opt.id} id={opt.id} name={opt.name} deleteF={deleteOpt} update={updateOpt} />
+                                        ))}
+                                    </Grid>
+                                    <br />
+                                </>
+                            ))
+                        }
+                    </Grid>
                 </header>
             </div>
         </>

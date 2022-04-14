@@ -3,7 +3,8 @@ import './graph.css';
 import Chart from './Chart.js';
 import Line from './Line.js';
 import Label from './Label.js';
-import {questions} from './Questions.js';
+import { questions } from './Questions.js';
+import { Button, Autocomplete, TextField, Grid, Box } from '@mui/material';
 
 
 function Graph() {
@@ -70,30 +71,47 @@ function Graph() {
         <>
             <div className="graph">
                 <header className="graph-header">
+                    <Grid container direction="row" spacing={2} columnSpacing={{ xs: 2, sm: 3} }>
+                        <Grid item xs={12} lg={8} xl={6}>
+                            <Chart data2={data2} />
+                        </Grid>
+                        {/* Block on right side- contains information about the chart on the left */}
+                        <Grid item xs={12} lg={4} xl={ 6 }>
+                            <div className="chartDataBlock">
+                                <h1>Chart Information</h1>
+                                <p>
+                                    To take a look at sample queries of interest, select a dropdown below.
+                                </p>
+                                <p>
+                                    To create your own queries, click <a href='#'>here</a>.
+                                </p>
+                            </div>
+                            <Grid container spacing={2}>
+                                {
+                                    labels.map((label) => (<Grid item xs={4}><Label key={label.id} id={label.id} name={label.name} deleteF={deleteLabel} update={updateLabel} /></Grid>))
+                                }
 
-                    <Chart data2={data2 }/>
-                    {/* Block on right side- contains information about the chart on the left */}
+                            </Grid>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <button onClick={() => { addLabel() }} >Add Label</button>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    {
+                                        lines.map((line) => (<Line key={line.id} questions={question} id={line.id} name={line.name} deleteF={deleteLine} update={updateLine} labels={labels} />))
+                                        
+                                    }
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <button onClick={() => { addLine() }} >Add Line</button>
+                                    <button onClick={() => { test() }} >Output Labels</button>
+                                </Grid>
+                            </Grid>
 
-                    <div className="chartDataBlock">
-                        <h1>Chart Information</h1>
-                        <p>
-                            To take a look at sample queries of interest, select a dropdown below.
-                        </p>
-                        <p>
-                            To create your own queries, click <a href='#'>here</a>.
-                        </p>
-                    </div>
+                        </Grid>
+                    </Grid>
                 </header>
             </div>
-            {
-                labels.map((label) => (<Label key={label.id} id={label.id} name={label.name} deleteF={deleteLabel} update={updateLabel}/>))
-            }
-            <button onClick={() => { addLabel() }} >Add Label</button>
-            {
-                lines.map((line) => (<Line key={line.id} questions={question} id={line.id} name={line.name} deleteF={deleteLine} update={updateLine} labels={ labels }/>))
-            }
-            <button onClick={() => { addLine() }} >Add Line</button>
-            <button onClick={() => { test() }} >Output Labels</button>
         </>
 
     );

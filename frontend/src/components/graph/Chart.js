@@ -62,8 +62,6 @@ function Chart({data2}) {
                     <label >Graph Y-axis Name:  </label>
                     <input type="text" id="graphY" name="graphY" value={yaxis} onChange={(e) => setYaxis(e.target.value)}></input><br />
                 </form>
-
-
             </div >
         </>
 

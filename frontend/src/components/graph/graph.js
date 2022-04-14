@@ -1,62 +1,102 @@
+import React, { useState, useEffect } from 'react';
 import './graph.css';
-
-import { data } from './testData';    // Importing test data from testData.js
-import {                            //  //
-    LineChart,                        //  //
-    Line,                             //  //
-    XAxis,                            //  //
-    YAxis,                            //  //    Importing all necessary parts of recharts.js (creates charts)
-    CartesianGrid,                    //  // 
-    Tooltip,                          //  //
-    Legend                              //  //
-} from "recharts";                  //  //
+import Chart from './Chart.js';
+import Line from './Line.js';
+import Label from './Label.js';
+import {questions} from './Questions.js';
 
 
-function graph() {
+function Graph() {
+    /*const [date, setDate] = useState('Title');
+    const [date, setDate] = useState('X-Axis');
+    const [date, setDate] = useState('Y-Axis');*/
+    const [lines, setLines] = useState([]);
+    const [labels, setLabels] = useState([]);
+    const [question, setQuestion] = useState(questions);
+    let data2 = "HI";
+
+
+    function test() {console.log(labels) }
+
+    function addLine()
+    {
+        let temp = lines;
+        let temp2 = { id: temp.length, name: "" };
+        temp.push(temp2);
+        setLines([...temp]);
+
+    }
+
+    function updateLine(num,name) {
+        lines.at(num).name = name;
+    }
+
+    function deleteLine(id)
+    {
+        let temp = lines;
+        temp.splice(id, 1);
+        for (var i = 0; i < temp.length; i++) {
+            temp.at(i).id = i;
+        }
+        setLines([...temp]);
+    }
+
+    function addLabel()
+    {
+        let temp = labels;
+        let temp2 = { id: temp.length, name: "" };
+        temp.push(temp2);
+        setLabels([...temp]);
+    }
+
+    function updateLabel(num,name) {
+        labels.at(num).name = name;
+        setLabels([...labels]);
+    }
+
+    function deleteLabel(id)
+    {
+        let temp = labels;
+        temp.splice(id, 1);
+        for (var i = 0; i < temp.length; i++)
+        {
+            temp.at(i).id = i;
+        }
+        setLabels([...temp]);
+        console.log(labels)
+    }
+
     return (
-        <div className="graph">
-            <header className="graph-header">
-                {/* White block on the left- contains the chart and title of the chart */ }
-                <div class="chart">
-                    <div class="chartTitle">
-                        <h1>Age of First Usage (Marijuana vs Meth)</h1>
-                    </div>
+        <>
+            <div className="graph">
+                <header className="graph-header">
 
-                {/* Properties of the chart */}
-                <LineChart
-                    width={750}
-                    height={450}
-                    data={data} // Change data here
-                    margin={{
-                    top: 5,
-                    right: 5,
-                    left: 5,
-                        bottom: 5
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" label={{ value: 'Age', position: 'insideBottom', offset: -2 }} />
-                    <YAxis label={{ value: 'Users', angle: -90, position: 'insideLeft', offset: 0 }} />
-                    <Tooltip />
-                    <Legend verticalAlign="top" height={36} />
-                    <Line
-                        type="monotone"
-                        dataKey="Marijuana"
-                        stroke="#8884d8"
-                        strokeDasharray="5 5"
-                    />
-                    <Line
-                        type="monotone"
-                        dataKey="Meth"
-                        stroke="#82ca9d"
-                        strokeDasharray="3 4 5 2"
-                    />
-                </LineChart>
-                {/* End of the properties of the chart */}
-                    </div >
-            </header>
-        </div>
+                    <Chart data2={data2 }/>
+                    {/* Block on right side- contains information about the chart on the left */}
+
+                    <div className="chartDataBlock">
+                        <h1>Chart Information</h1>
+                        <p>
+                            To take a look at sample queries of interest, select a dropdown below.
+                        </p>
+                        <p>
+                            To create your own queries, click <a href='#'>here</a>.
+                        </p>
+                    </div>
+                </header>
+            </div>
+            {
+                labels.map((label) => (<Label key={label.id} id={label.id} name={label.name} deleteF={deleteLabel} update={updateLabel}/>))
+            }
+            <button onClick={() => { addLabel() }} >Add Label</button>
+            {
+                lines.map((line) => (<Line key={line.id} questions={question} id={line.id} name={line.name} deleteF={deleteLine} update={updateLine} labels={ labels }/>))
+            }
+            <button onClick={() => { addLine() }} >Add Line</button>
+            <button onClick={() => { test() }} >Output Labels</button>
+        </>
+
     );
 }
 
-export default graph;
+export default Graph;

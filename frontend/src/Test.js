@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { getQR,getTest } from './components/calls/actions/queryActions.js';
+import { getQR } from './components/calls/actions/queryActions.js';
 
 
 
@@ -13,7 +12,7 @@ const Test = () => {
     const data = { query: 'select * from response_meaning where questionID=55' };
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getTest());
+        console.log(dispatch);
     }, [dispatch]);
 
     const backlogs = useSelector((state) => {

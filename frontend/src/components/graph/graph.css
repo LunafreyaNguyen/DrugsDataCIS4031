@@ -1,0 +1,39 @@
+.graph {
+    text-align: center;
+}
+.graph-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    text-align: center;
+    font-size: calc(1.5vmin);
+    color: white;
+}
+.chart {
+    padding: 20px;
+    text-align: center;
+    color: black;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+}
+
+.chartDataBlock {
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+.line {
+    border-radius: 15px;
+    padding: 30px;
+    background-color: rgb(200, 200, 200);
+    color: black;
+}
+
+.label {
+    border-radius: 15px;
+    padding: 5px;
+    background-color: rgb(200, 200, 200);
+    color: black;
+}

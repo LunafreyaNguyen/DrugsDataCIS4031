@@ -163,11 +163,6 @@ function Line({ lines,name, id, deleteF, update, questions, labels, data2 ,setDa
                                 </>
                             ))
                         }
-                        <Grid item xs={12}>
-                            <Button variant="outlined" color="error" onClick={() => { deleteF(id) }} ><DeleteRounded />fsadfsadfsdaf</Button>
-                            <Button variant="outlined" onClick={() => { queryBuilder() }} >Add Line to Chart</Button>
-                            <Button variant="outlined" onClick={() => { toggleOptions() }} >{toggleOpts ? <ArrowUpward /> : <ArrowDownward />}</Button>
-                        </Grid>
                     </Grid>
                 </header>
             </div>

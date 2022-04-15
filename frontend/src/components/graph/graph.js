@@ -6,7 +6,7 @@ import Label from './Label.js';
 import { questions } from './Questions.js';
 import { Button, Autocomplete, TextField, Grid, Box } from '@mui/material';
 import { labelAgePreset, labelPresets } from './Presets/LabelsPresets.js';
-
+import { presetsData} from './Presets/DataPresets.js'
 
 function Graph() {
     const [lines, setLines] = useState([]);
@@ -18,7 +18,13 @@ function Graph() {
     const [data2, setData2] = useState([]);
 
 
-    function test() { console.log(labels) }
+
+    function setPresetData(e) {
+        if (e === "Empty")
+        {
+            setData2([]);
+        }
+    }
 
     function setLabelPreset(e)
     {
@@ -84,7 +90,7 @@ function Graph() {
         <>
             <div className="graph">
                 <header className="graph-header">
-                    <Grid container direction="row" spacing={2} columnSpacing={{ xs: 2, sm: 3} }>
+                    <Grid container direction="row" alignItems="center" justifyContent="center" spacing={2} columnSpacing={{ xs: 2, sm: 3} }>
                         <Grid item xs={12} lg={8} xl={6}>
                             <Chart title={title} setTitle={setTitle} xaxis={xaxis} yaxis={yaxis} setXaxis={setXaxis} setYaxis={setYaxis} data2={data2} lines={lines}  />
                         </Grid>
@@ -95,29 +101,29 @@ function Graph() {
                                 <p>
                                     To take a look at sample queries of interest, select a dropdown below.
                                 </p>
-                                <button onClick={() => { test() }} >Output Labels</button>
                                 <Autocomplete
                                     disablePortal
-                                    id="questions"
-                                    options={questions}
-                                    onInputChange={(event,newInputValue) => {setQuestion(newInputValue)} }
+                                    id="presetsData"
+                                    options={presetsData}
+                                    onInputChange={(event,newInputValue) => {setPresetData(newInputValue)} }
                                     sx={{ width: 300 }}
-                                    renderInput={(params) => <TextField {...params} label="Select Question" />}
+                                    renderInput={(params) => <TextField {...params} label="Data" />}
                                 />
                                 <p>
                                     To create your own queries, use the options below.
                                 </p>
+
+                                <button onClick={() => { addLabel() }} >Add Label</button>
+                               
                                 <Grid item xs={12}>
-                                    <button onClick={() => { addLabel() }} >Add Label</button>
                                     <Autocomplete
                                         disablePortal
-                                        id="questions"
+                                        id="label_preset"
                                         options={labelPresets}
                                         onChange={(event, value) => { setLabelPreset(value.label) }}
                                         sx={{ width: 400 }}
-                                        renderInput={(params) => <TextField {...params} label="Select Question" />}
+                                        renderInput={(params) => <TextField {...params} label="Label Presets" />}
                                     />
-
                                 </Grid>
                             <Grid container spacing={2}>
                                 
@@ -127,7 +133,6 @@ function Graph() {
 
                                 <Grid item xs={12}>
                                     <button onClick={() => { addLine() }} >Add Line</button>
-                                    <button onClick={() => { test() }} >Output Labels</button>
                                 </Grid>
                                 <Grid item xs={12}>
                                     {

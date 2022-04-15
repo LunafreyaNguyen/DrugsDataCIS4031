@@ -44,6 +44,7 @@ async function run(sql) {
 //Function that Accepts request and responses
 export const queryResult = async (req, res) => {
 	try {
+		console.log(req.body);
 		const query = await run(req.body.query);
 		console.log(query);
 		res.status(200).json({ query: query });

@@ -110,21 +110,21 @@ function Line({ lines,name, id, deleteF, update, questions, labels, data2 ,setDa
         <>
             <div className="line">
                 <header className="line-header">
-                    <Grid alignItems='center' container spacing={1}>
-                        <Grid item xs={4}>
+                    <Grid alignItems='center' justifyContent="center" container spacing={1}>
+                        <Grid item xs={3}>
                             <TextField id="standard-basic" label={"Line " + id + " Name:"} variant="standard" onChange={(event) => { update(id, event.target.value) }} />
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <Autocomplete
                                 disablePortal
                                 id="questions"
                                 options={questions}
                                 onChange={(event, value) => { setQuestion(value.abbreviation); updateResponses(value.abbreviation); }}
-                                sx={{ width: 300 }}
+                                sx={{ width: 400 }}
                                 renderInput={(params) => <TextField {...params} label="Select Question" />}
                             />
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <Autocomplete
                                 disablePortal
                                 id="presets"
@@ -132,7 +132,7 @@ function Line({ lines,name, id, deleteF, update, questions, labels, data2 ,setDa
                                 onChange={(event, value) => {
                                     setOptionAsPreset(value.label)
                                 }}
-                                sx={{ width: 150 }}
+                                sx={{ width: 200 }}
                                 renderInput={(params) => <TextField {...params} label="Options Presets" />}
                             />
                         </Grid>
@@ -158,6 +158,11 @@ function Line({ lines,name, id, deleteF, update, questions, labels, data2 ,setDa
                                 </>
                             ))
                         }
+                        <Grid item xs={12}>
+                            <Button variant="outlined" color="error" onClick={() => { deleteF(id) }} ><DeleteRounded />fsadfsadfsdaf</Button>
+                            <Button variant="outlined" onClick={() => { queryBuilder() }} >Add Line to Chart</Button>
+                            <Button variant="outlined" onClick={() => { toggleOptions() }} >{toggleOpts ? <ArrowUpward /> : <ArrowDownward />}</Button>
+                        </Grid>
                     </Grid>
                 </header>
             </div>

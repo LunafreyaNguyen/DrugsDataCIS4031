@@ -5,6 +5,7 @@ import Line from './Line.js';
 import Label from './Label.js';
 import { questions } from './Questions.js';
 import { Button, Autocomplete, TextField, Grid, Box } from '@mui/material';
+import { labelAgePreset, labelPresets } from './Presets/LabelsPresets.js';
 
 
 function Graph() {
@@ -17,7 +18,12 @@ function Graph() {
     const [data2, setData2] = useState([]);
 
 
-    function test() {console.log(labels) }
+    function test() { console.log(labels) }
+
+    function setLabelPreset(e)
+    {
+
+    }
 
     function addLine()
     {
@@ -88,6 +94,14 @@ function Graph() {
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <button onClick={() => { addLabel() }} >Add Label</button>
+                                    <Autocomplete
+                                        disablePortal
+                                        id="questions"
+                                        options={ labelPresets }
+                                        onChange={(event, value) => { setLabelPreset(value.label) }}
+                                        sx={{ width: 400 }}
+                                        renderInput={(params) => <TextField {...params} label="Select Question" />}
+                                    />
                                 </Grid>
                                 {
                                     labels.map((label) => (<Grid item xs={4}><Label key={label.id} id={label.id} name={label.name} deleteF={deleteLabel} update={updateLabel} /></Grid>))

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './graph.css';
 import { Button, Autocomplete, TextField } from '@mui/material';
-import { DeleteRounded } from '@mui/icons-material';
-
+import { DeleteRounded,  } from '@mui/icons-material';
 function Label({ name, id, deleteF, update}) {
     /*const [date, setDate] = useState('Title');
     const [date, setDate] = useState('X-Axis');

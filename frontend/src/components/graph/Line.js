@@ -49,7 +49,8 @@ function Line({ name, id, deleteF, update, questions, labels,data2 }) {
                         <Autocomplete
                             disablePortal
                             id="questions"
-                            options={[{ label: 'Question 0 ', abbreviation: 'cigever' },
+                            options={
+                            [{ label: 'Question 0 ', abbreviation: 'cigever'},
                             { label: 'Question 0 ', abbreviation: 'cigever' },
                             { label: 'Question 0 ', abbreviation: 'cigever' },
                             { label: 'Question 0 ', abbreviation: 'cigever' },

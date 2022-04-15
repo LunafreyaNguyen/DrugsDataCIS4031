@@ -85,8 +85,16 @@ function Graph() {
                                 <p>
                                     To take a look at sample queries of interest, select a dropdown below.
                                 </p>
+                                <Autocomplete
+                                    disablePortal
+                                    id="questions"
+                                    options={questions}
+                                    onInputChange={(event,newInputValue) => {setQuestion(newInputValue)} }
+                                    sx={{ width: 300 }}
+                                    renderInput={(params) => <TextField {...params} label="Select Question" />}
+                                />
                                 <p>
-                                    To create your own queries, click <a href='#'>here</a>.
+                                    To create your own queries, use the options below.
                                 </p>
                             </div>
                             <Grid container spacing={2}>

@@ -13,7 +13,7 @@ const router = express.Router();
 //Getting Connection to Oracle Database
 let connection;
 try {
-	oracledb.initOracleClient({ libDir: 'C:\\Program Files\\Java\\instantclient_21_3' });
+	oracledb.initOracleClient({ libDir: 'C:\\Users\\toann\\Desktop\\instantclient_21_3' });
 	connection = await oracledb.getConnection(
 		{
 			user: username,

@@ -22,7 +22,6 @@ function Chart({ data2,title,setTitle,xaxis,setXaxis,yaxis,setYaxis,lines }) {
 
     return (
         <>
-            <button onClick={() => {presets() } }/>
             {/* White block on the left- contains the chart and title of the chart */}
             <div className="chart">
                 <div className="chartTitle">

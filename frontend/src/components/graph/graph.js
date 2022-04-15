@@ -8,16 +8,13 @@ import { Button, Autocomplete, TextField, Grid, Box } from '@mui/material';
 
 
 function Graph() {
-    /*const [date, setDate] = useState('Title');
-    const [date, setDate] = useState('X-Axis');
-    const [date, setDate] = useState('Y-Axis');*/
     const [lines, setLines] = useState([]);
     const [labels, setLabels] = useState([]);
     const [question, setQuestion] = useState(questions);
     const [title, setTitle] = useState('Title');
     const [xaxis, setXaxis] = useState('X-Axis');
     const [yaxis, setYaxis] = useState('Y-Axis');
-    const [data2, setData2] = useState();
+    const [data2, setData2] = useState([]);
 
 
     function test() {console.log(labels) }
@@ -67,7 +64,6 @@ function Graph() {
             temp.at(i).id = i;
         }
         setLabels([...temp]);
-        console.log(labels)
     }
 
     return (
@@ -76,7 +72,7 @@ function Graph() {
                 <header className="graph-header">
                     <Grid container direction="row" spacing={2} columnSpacing={{ xs: 2, sm: 3} }>
                         <Grid item xs={12} lg={8} xl={6}>
-                            <Chart title={title} setTitle={setTitle} xaxis={xaxis} yaxis={yaxis} setXaxis={setXaxis} setYaxis={setYaxis} data2={data2} lines={ lines } />
+                            <Chart title={title} setTitle={setTitle} xaxis={xaxis} yaxis={yaxis} setXaxis={setXaxis} setYaxis={setYaxis} data2={data2} lines={lines}  />
                         </Grid>
                         {/* Block on right side- contains information about the chart on the left */}
                         <Grid item xs={12} lg={4} xl={ 6 }>
@@ -111,7 +107,7 @@ function Graph() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     {
-                                        lines.map((line) => (<Line key={line.id} data2={ data2 } questions={question} id={line.id} name={line.name} deleteF={deleteLine} update={updateLine} labels={labels} />))
+                                        lines.map((line) => (<Line key={line.id} data2={data2} questions={question} lines={ lines } id={line.id} name={line.name} deleteF={deleteLine} update={updateLine} labels={labels} setData2={setData2} />))
                                         
                                     }
                                 </Grid>

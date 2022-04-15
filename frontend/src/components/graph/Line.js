@@ -49,7 +49,11 @@ function Line({ name, id, deleteF, update, questions, labels,data2 }) {
                         <Autocomplete
                             disablePortal
                             id="questions"
-                            options={questions}
+                            options={[{ label: 'Question 0 ', abbreviation: 'cigever' },
+                            { label: 'Question 0 ', abbreviation: 'cigever' },
+                            { label: 'Question 0 ', abbreviation: 'cigever' },
+                            { label: 'Question 0 ', abbreviation: 'cigever' },
+                            { label: 'Question 0 ', abbreviation: 'cigever' },]}
                             onInputChange={(event,newInputValue) => {setQuestion(newInputValue)} }
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label="Select Question" />}

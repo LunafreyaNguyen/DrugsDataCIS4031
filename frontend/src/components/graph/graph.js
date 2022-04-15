@@ -22,7 +22,15 @@ function Graph() {
 
     function setLabelPreset(e)
     {
-
+        console.log(labels);
+        
+        if (e === "Age")
+        {
+             setLabels([...labelAgePreset]);
+        }
+        else if (e === "Empty") {
+            setLabels([]);
+        }
     }
 
     function addLine()
@@ -87,6 +95,7 @@ function Graph() {
                                 <p>
                                     To take a look at sample queries of interest, select a dropdown below.
                                 </p>
+                                <button onClick={() => { test() }} >Output Labels</button>
                                 <Autocomplete
                                     disablePortal
                                     id="questions"
@@ -98,21 +107,22 @@ function Graph() {
                                 <p>
                                     To create your own queries, use the options below.
                                 </p>
-                            </div>
-                            <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <button onClick={() => { addLabel() }} >Add Label</button>
                                     <Autocomplete
                                         disablePortal
                                         id="questions"
-                                        options={ labelPresets }
+                                        options={labelPresets}
                                         onChange={(event, value) => { setLabelPreset(value.label) }}
                                         sx={{ width: 400 }}
                                         renderInput={(params) => <TextField {...params} label="Select Question" />}
                                     />
+
                                 </Grid>
+                            <Grid container spacing={2}>
+                                
                                 {
-                                    labels.map((label) => (<Grid item xs={4}><Label key={label.id} id={label.id} name={label.name} deleteF={deleteLabel} update={updateLabel} /></Grid>))
+                                    labels.map((label) => ( <Grid item xs={4}><Label key={label.id} id={label.id} name={label.name} deleteF={deleteLabel} update={updateLabel} /></Grid>))
                                 }
 
                                 <Grid item xs={12}>
@@ -121,17 +131,21 @@ function Graph() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     {
-                                        lines.map((line) => (<Line key={line.id} data2={data2} questions={question} lines={ lines } id={line.id} name={line.name} deleteF={deleteLine} update={updateLine} labels={labels} setData2={setData2} />))
+                                        lines.map((line) => (<Line key = {line.id } data2 = { data2 } questions = { question } lines = { lines } id = { line.id } name = { line.name } deleteF = { deleteLine } update = { updateLine } labels = { labels } setData2 = { setData2 } />))
                                         
                                     }
                                 </Grid>
                                 
-                            </Grid>
+                                </Grid>
+                            </div>
 
                         </Grid>
+                            
+                            
                     </Grid>
                 </header>
             </div>
+
         </>
 
     );

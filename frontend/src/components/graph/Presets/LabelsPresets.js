@@ -11,7 +11,7 @@ const labelAgePreset =
 const labelPresets =
 	[
 		{ label: 'Age' },
-		{ label: 'Age1' },
+		{ label: 'Empty' },
 		{ label: 'Age2' },
 		{ label: 'Age3' },
 		{ label: 'Age4' },

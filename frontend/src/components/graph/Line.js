@@ -6,6 +6,7 @@ import { DeleteRounded, AddCircle,ArrowDownward,ArrowUpward } from '@mui/icons-m
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { getQR } from '../calls/actions/queryActions.js';
 import { optionsAge, optionsPresets } from './Presets/Options.js'
+import Label from './Label.js';
 
 
 function Line({ lines,name, id, deleteF, update, questions, labels, data2 ,setData2 }) {
@@ -25,6 +26,10 @@ function Line({ lines,name, id, deleteF, update, questions, labels, data2 ,setDa
 
     const dispatch = useDispatch();
 
+    /*function updateName(e) {
+        console.log('hi');
+        setTempName(e);
+    }*/
     async function queryBuilder() {
         let temp2 = [];
         needChange = true;
@@ -167,7 +172,6 @@ function Line({ lines,name, id, deleteF, update, questions, labels, data2 ,setDa
                 </header>
             </div>
         </>
-
     );
 }
 

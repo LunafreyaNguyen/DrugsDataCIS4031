@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.css-viou3o-MuiAutocomplete-root{
+  margin-left: 310px;
+}
+
+.chart{
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+form{
+  text-align: right;
+  margin-top:5%;
+  margin-right:40%;
+}
+
+.chartDataBlock{
+  margin-right:15px;
+  padding:10px;
+}

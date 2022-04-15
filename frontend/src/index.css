@@ -16,6 +16,11 @@ code {
   margin-left: 310px;
 }
 
+.css-hsnmye-MuiAutocomplete-root{
+  width: 400px;
+  margin-left: 250px;
+}
+
 .chart{
   margin-left: 15px;
   margin-top: 15px;
@@ -28,6 +33,7 @@ form{
 }
 
 .chartDataBlock{
+  margin-top:15px;
   margin-right:15px;
   padding:10px;
 }

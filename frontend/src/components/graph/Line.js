@@ -4,7 +4,7 @@ import Option from './Option.js';
 import { Button, Autocomplete, TextField, Grid, Box} from '@mui/material';
 import { DeleteRounded,AddCircle } from '@mui/icons-material';
 
-function Line({ name, id, deleteF, update, questions, labels }) {
+function Line({ name, id, deleteF, update, questions, labels,data2 }) {
     const [question, setQuestion] = useState();
     const [opts, setOpts] = useState([]);
     /*const [date, setDate] = useState('Title');

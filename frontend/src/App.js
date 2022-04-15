@@ -9,7 +9,8 @@ function App() {
   return (  // Returns the HTML to "inject"
       <>
           <Title/>
-          <Graph/>
+          <Graph />
+          <Test/>
       </>
   );
 }
